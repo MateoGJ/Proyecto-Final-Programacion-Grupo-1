@@ -1,5 +1,4 @@
 # Proyecto-Final-Programacion---Grupo-1
-# Sistema de Gestión para Verdulerias
 ![image](https://github.com/MateoGJ/Proyecto-Final-Programacion-Grupo-1/assets/106460135/fb1b727c-efca-4d8b-9a1d-5e389848c3dc)
 
 Este proyecto se abordará con un enfoque técnico que prioriza la simplicidad y la eficiencia. Utilizaremos tecnologías de desarrollo de aplicaciones web para garantizar la accesibilidad y facilidad de uso. La metodología de trabajo se basará en metodologías ágiles, lo que permitirá una mayor flexibilidad y adaptabilidad a medida que se desarrollen nuevas funcionalidades.
