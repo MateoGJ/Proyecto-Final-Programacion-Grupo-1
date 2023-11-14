@@ -1,11 +1,11 @@
 CREATE DATABASE Green_Market_Inventory_DB;
-use Green_Market_Inventory_DB;
+USE Green_Market_Inventory_DB;
 
 CREATE TABLE Productos (
   id_producto INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(45) DEFAULT NULL,
-  precio INT,
-  tiempo_de_preparación INT
+  nombre VARCHAR(45) NOT NULL,
+  precio INT NOT NULL,
+  id_categoria INT
 );
 
 CREATE TABLE Categorias (
@@ -30,8 +30,9 @@ CREATE TABLE stock_entries (
   id INT AUTO_INCREMENT PRIMARY KEY,
   producto_id INT,
   cantidad INT DEFAULT 0,
-  fecha DATE DEFAULT NULL,
-  tipo_operacion VARCHAR(255) DEFAULT NULL
+  fecha DATE DEFAULT NULL, -- Fecha de salida
+  tipo_operacion VARCHAR(255) DEFAULT NULL,
+  remito_id INT -- Hace referencia al remito al que pertenece la entrada
 );
 
 ALTER TABLE stock_entries
@@ -40,8 +41,12 @@ FOREIGN KEY (producto_id)
 REFERENCES Productos (id_producto);
 
 ALTER TABLE Productos
-ADD COLUMN id_categoria INT,
 ADD FOREIGN KEY (id_categoria) REFERENCES Categorias (id_categoria);
 
 ALTER TABLE Remitos
 ADD FOREIGN KEY (id_cliente) REFERENCES Clientes (id_cliente);
+
+ALTER TABLE stock_entries
+ADD CONSTRAINT fk_remito_id
+FOREIGN KEY (remito_id)
+REFERENCES Remitos (id_remito);
